@@ -1,0 +1,32 @@
+name: PrayForDay
+author: L337Lobster
+website: http://llfrealms.com
+main: com.llfrealms.PrayForDay.PrayForDay
+version: 0.0
+
+commands:
+    prayforsave:
+       description: save config.
+       aliases: pfs
+       permission: llf.save
+       permission-message: You do not have permission for this command
+       usage: /<command>
+    prayforload:
+       description: reload config.
+       aliases: pfl
+       permission: llf.load
+       permission-message: You do not have permission for this command
+       usage: /<command>
+permissions:
+    llf.*:
+        description: Allows the user to save, reload, and add to the config
+        default: op
+        children:
+            llf.save: true
+            llf.load: true
+    llf.save:
+        description: Allows the user to save the config file
+        default: false
+    llf.load:
+        description: Allows the user to reload the config file
+        default: false

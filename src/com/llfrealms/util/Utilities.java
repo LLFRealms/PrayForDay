@@ -20,9 +20,9 @@ public class Utilities {
 	
 	private ConsoleCommandSender consoleMessage = Bukkit.getConsoleSender();
 	
-	public Statement stmt = null;
-	public Connection connection = null;
-	public ResultSet result = null;
+	public static Statement stmt = null;
+	public static Connection connection = null;
+	public static ResultSet result = null;
 	public static String database, dbusername, dbpassword, host, prefix;
 	public static int port;
 	
@@ -30,7 +30,13 @@ public class Utilities {
 	public Utilities(PrayForDay plugin) {
 		Utilities.plugin = plugin;
 	}
-	
+	public static void loadCommands()
+	{
+		for(int i = 0; i < plugin.commands.size(); i++)
+		{
+			plugin.getCommand(plugin.commands.get(i)).setExecutor(new Commands(plugin));
+		}
+	}
     public static String colorChat(String msg) 
     {
     	return msg.replace('&', (char) 167);

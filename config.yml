@@ -1,0 +1,11 @@
+######################################
+#            MySql section           #
+######################################
+MySQL:
+    database:
+        username: username # Your database username
+        password: password # Your database password
+        database: database # Your database name
+    server:
+        port: 3306 # Your database's port number
+        address: localhost # Your database's address (IP)

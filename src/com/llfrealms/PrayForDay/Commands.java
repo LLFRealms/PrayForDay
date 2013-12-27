@@ -8,7 +8,11 @@ public class Commands implements CommandExecutor
 	public Commands(PrayForDay plugin) {
 		this.plugin = plugin;
 	}
- 
+	public void commandSetup()
+	{
+		plugin.commands.add("prayforsave");
+		plugin.commands.add("prayforload");
+	}
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) 
 	{
