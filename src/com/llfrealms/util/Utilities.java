@@ -18,7 +18,7 @@ import com.llfrealms.PrayForDay.*;
 
 public class Utilities {
 	
-	private ConsoleCommandSender consoleMessage = Bukkit.getConsoleSender();
+	private static ConsoleCommandSender consoleMessage = Bukkit.getConsoleSender();
 	
 	public static Statement stmt = null;
 	public static Connection connection = null;
@@ -29,13 +29,6 @@ public class Utilities {
 	private static PrayForDay plugin;
 	public Utilities(PrayForDay plugin) {
 		Utilities.plugin = plugin;
-	}
-	public static void loadCommands()
-	{
-		for(int i = 0; i < plugin.commands.size(); i++)
-		{
-			plugin.getCommand(plugin.commands.get(i)).setExecutor(new Commands(plugin));
-		}
 	}
     public static String colorChat(String msg) 
     {
@@ -153,15 +146,15 @@ public class Utilities {
 	        stmt = null;
 	    }
     }
-	public static void connectSetup()
+	/*public static void connectSetup()
 	{
-		prefix = configString("MySQL.database.prefix");
+		//prefix = configString("MySQL.database.prefix");
         host = configString("MySQL.server.address");
         port = configInt("MySQL.server.port");
         database = configString("MySQL.database.database");
         dbusername = configString("MySQL.database.username");
         dbpassword = configString("MySQL.database.password");
-	}
+	}*/
 	public static String configString(String path)
 	{
 		return plugin.getConfig().getString(path);

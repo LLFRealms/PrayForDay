@@ -1,7 +1,6 @@
 package com.llfrealms.PrayForDay;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.ConsoleCommandSender;
@@ -13,15 +12,15 @@ public final class PrayForDay extends JavaPlugin
 {
 	public String pluginName = "PrayForDay";
 	private ConsoleCommandSender consoleMessage = Bukkit.getConsoleSender();
-
-	public ArrayList<String> commands = new ArrayList<String>();
 	
 	@Override
     public void onEnable(){
 		this.saveDefaultConfig();
     	this.getConfig();
+    	getCommand("ltbl").setExecutor(new Commands(this));
+    	getCommand("fuckthelight").setExecutor(new Commands(this));
 		Utilities.sendMessage(consoleMessage, "[" + pluginName + "] &aYou better start Praying For Day!");
-		Utilities.connectSetup();
+		//Utilities.connectSetup();
     }
  
     @Override
